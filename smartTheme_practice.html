@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Theme Practice</title>
+</head>
+<body>
+  <h1>This is my website</h1>
+  <button>Change colour</button>
+
+  <script>
+    let button = document.querySelector('button');
+    let html = document.querySelector('html');
+    document.body.style.padding = '10px';
+
+    button.addEventListener('click', onClick);
+
+    function randColourBG() {
+      let r = Math.floor(Math.random() * 256);
+      let g = Math.floor(Math.random() * 256);
+      let b = Math.floor(Math.random() * 256);
+
+      return [r,g,b];
+    }
+
+    function textColour(r,g,b) {
+      return (r * 299 + g * 587 + b * 114) / 1000;
+    }
+
+    function onClick() {
+      let rgb = randColourBG();
+      let txt = textColour(rgb[0],rgb[1],rgb[2]);
+
+      let bgColour = `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+      html.style.backgroundColor = bgColour;
+
+      (txt < 127) ? html.style.color = 'white': html.style.color = 'black';
+    }
+  </script>
+</body>
+</html>

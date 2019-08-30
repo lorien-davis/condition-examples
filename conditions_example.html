@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conditions Example</title>
+</head>
+<body>
+  <script>
+    let userCurrent = prompt("Who's there?");
+
+    if (userCurrent == "Admin") {
+      let passCurrent = prompt("Password?");
+
+      if (passCurrent == "Admin") {
+        alert("Welcome!");
+      } else if (passCurrent == "" || passCurrent == null) {
+        alert("Cancelled");
+      } else {
+        alert("Incorrect password");
+      }
+      
+    } else if (userCurrent == "" || userCurrent == null) {
+      alert("Cancelled");
+    } else {
+      alert("Incorrect username");
+    }
+  </script>
+</body>
+</html>
